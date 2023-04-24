@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', cursive;
+}
+h1 {
+    font-size: 5rem;
+}
+
+#preview_wrapper {
+    aspect-ratio: 1 / 1;
+}
+.poster-border-thumb {
+	display: flex;
+	gap: 20px;
+}
+.frame-border {
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	background: #fff;
+}
+#preview_wrapper {
+	position: relative;
+	border: 1px solid #000;
+	background: #fff;
+	overflow: hidden;
+}
+#posterFooter {
+    padding: 20px 0;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+#posterFooter img {
+    width: 200px;
+}
+#outerImg {
+    position: absolute;
+    z-index: 9;
+}
+#outerImg.active {
+    z-index: 0;
+}
+#innerImg {
+	width: 100%;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+#innerImg.active {
+    z-index: 10;
+}
+#innerText {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    padding: 0 20px;
+    width: 100%;
+    color: #fff;
+	overflow: hidden;
+	z-index: 9;
+}
+#desc {
+    text-align: center;
+}
+#imgPreview {
+  	display: none; 
+  	width: 155px;   
+  	border: 2px dashed #333;  
+  	margin-bottom: 20px;
+}
+#imgPreview img {  
+  	width: 100%;
+  	height: auto; 
+  	display: block;   
+}
+#toggle-poster-option button {
+    margin: 15px 0;
+    font-size: 16px;
+}
+.finalPoster-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+#finalPoster {
+    flex-basis: 50%;
+}
+.social-icon-poster {
+    flex-basis: 50%;
+    text-align: center;
+}
+.social-icon-poster .fab {
+    margin-right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*social modal*/
+#social_fix {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50vh;
+    background: #f2f2f2;
+    overflow: hidden;
+    display: none;
+}
+.social_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+}
+.social_wrapper a {
+    border: 2px solid;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.close-btn {
+    position: absolute;
+    right: 0;
+}
+.close-btn a {
+    background: #000;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+
+@media (max-width: 768px) {
+    #desc {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    #posterFooter {
+        padding: 10px 0;
+    }
+    #posterFooter img {
+        width: 40%;
+    }
+    .fusion-modal .modal-header .modal-title {
+        font-size: 24px;
+    }
+    .frame-border {
+        width: auto;
+        height: auto;
+    }
+    .social_wrapper a {
+        font-size: 15px;
+    }
+
+}
+
+@media (max-width: 640px) {
+    #source_text {
+        font-size: 12px;
+    }
+    #desc {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .social_wrapper a {
+        width: 75px;
+        height: 75px;
+        font-size: 10px;
+    }
+}

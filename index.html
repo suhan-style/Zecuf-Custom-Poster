@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Custom Poster</title>
+	<!-- bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="main">
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1 class="text-center my-5">Create your poster</h1>
+					</div>
+				</div>
+			</div>
+			<div id="poster_wrapper" class="container">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="wrapper py-md-5">
+							<div id="preview_wrapper" style="outline:none;">
+								<img id="outerImg" class="img-fluid" src="" />
+								<img id="innerImg" class="img-fluid" src="" />
+								<div id="innerText">
+									<p id="desc"></p>
+								</div>
+							</div>
+
+							<div class="mt-3"></div>
+
+							<div id="switch_btn">
+								<span>Wrap Image</span>
+								<!-- Rounded switch -->
+								<label class="switch">
+									<input type="checkbox">
+									<span class="slider round"></span>
+								</label>
+								<span>Drag Image</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6">
+						<div class="wrapper py-5">
+							<div class="mb-5">
+								<h3>Choose a frame</h3>
+								<div class="poster-border-thumb">
+									<a id="frameOne" class="frame-border">
+										<img class="img-fluid" src="images/DP-1.png" alt="frame-1" />
+									</a>
+									<a id="frameTwo" class="frame-border">
+										<img class="img-fluid" src="images/DP-2.png" alt="frame-2" />
+									</a>
+									<a id="frameThree" class="frame-border">
+										<img class="img-fluid" src="images/DP-3.png" alt="frame-3" />
+									</a>
+									<a id="frameFour" class="frame-border">
+										<img class="img-fluid" src="images/DP-4.png" alt="frame-4" />
+									</a>
+								</div>
+							</div>
+
+							<div class="mb-5">
+								<h3>Upload Image</h3>
+								<div id="imgPreview"></div>
+								<input id="chooseFile" class="form-control mt-3" accept="image/*" required="" type="file" />
+								<button id="addImgBtn" class="btn btn-primary mt-3">Add Image</button>
+							</div>
+
+							<h3>Choose a message</h3>
+							<div id="source_text">
+								<div>
+									<input name="choose_msg" type="radio" value="For me Zecuf means soothing throat relief" /> For me Zecuf means soothing throat relief
+								</div>
+								<div>
+									<input name="choose_msg" type="radio" value="For me Zecuf means Tasty cough relief" /> For me Zecuf means Tasty cough relief
+								</div>
+								<div>
+									<input name="choose_msg" type="radio" value="For me Zecuf means Best remedy for all age group" /> For me Zecuf means Best remedy for all age group
+								</div>
+								<div>
+									<input name="choose_msg" type="radio" value="For me Zecuf means Fighting cough Naturally" /> For me Zecuf means Fighting cough Naturally
+								</div>
+								<div>
+									<input name="choose_msg" type="radio" value="" /> None
+								</div>
+							</div>
+							
+							<button id="addBtn" class="btn btn-primary mt-3">Add</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="row py-5">
+					<div class="d-flex justify-content-md-center justify-content-between gap-md-5 gap-3">
+						<button id="downloadBtn" class="btn btn-lg btn-outline-success">DOWNLOAD <i class="fa fa-download" aria-hidden="true"></i></button>
+						<button id="socialBtn" class="btn btn-lg btn-outline-info">SHARE <i class="fa fa-share-alt" aria-hidden="true"></i></button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="social_fix">
+			<div class="close-btn text-end">
+				<a href="javascript:void(0)"><i class="fa fa-close"></i></a>
+			</div>
+			<div class="social_wrapper">
+				<a href="https://facebook.com" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
+				<a href="https://facebook.com" target="_blank"><i class="fa fa-twitter fa-3x"></i></a>
+				<a href="https://facebook.com" target="_blank"><i class="fa fa-linkedin fa-3x"></i></a>
+			</div>
+		</section>
+	</div>
+
+
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<!-- html2canvas -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- FileSaver -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- jquery-ui -->
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<!-- jqueryui-touch-punch -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- custom js -->
+	<script type="text/javascript" src="js/script.js"></script>
+	<!-- bootstrap js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+</body>
+</html>
